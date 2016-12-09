@@ -2,6 +2,7 @@ class User < ApplicationRecord
   has_secure_password
 
   belongs_to                :team
+  has_many                  :accounts, through: :team
 
   before_save               :downcase_email
   before_create             :generate_confirmation_instructions

@@ -1,5 +1,6 @@
 class Account < ApplicationRecord
 
+  belongs_to    :team
 
   enum type: {
     profile: 1,
