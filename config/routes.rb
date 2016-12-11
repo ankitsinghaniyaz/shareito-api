@@ -10,9 +10,8 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :accounts, only: [] do
+  resources :accounts, only: [:create] do
     collection do
-      post 'facebook'
     end
   end
 end
