@@ -35,7 +35,11 @@ class UsersController < ApplicationController
     if user && user.authenticate(params[:password].to_s)
       if user.confirmed_at?
         auth_token = JsonWebToken.encode({user_id: user.id})
-        render json: {auth_token: auth_token}, status: :ok
+        # TODO: also send basic detail here like accounts linked and name.
+        render json: {
+            auth_token: auth_token,
+            accounts: user.accounts
+          }, status: :ok
       else
         render json: {error: 'Email not verified'}, status: :unauthorized
       end
