@@ -86,7 +86,7 @@ class Facebook
       token: token,
       expires_at: expires_at,
       image: profile.dig('picture', 'data', 'url'),
-      type: 'profile',
+      account_type: 'profile',
       source: 'facebook'
     )
     return [account]
@@ -105,7 +105,7 @@ class Facebook
         name: page["name"],
         token: page["access_token"],
         image: page.dig('picture', 'data', 'url'),
-        type: 'page',
+        account_type: 'page',
         source: 'facebook'
       )
       accounts.push(account)
@@ -127,7 +127,7 @@ class Facebook
         token: token,
         expires_at: expires_at,
         image: group.dig('picture', 'data', 'url'),
-        type: 'community',
+        account_type: 'community',
         source: 'facebook'
       )
       accounts.push(account)
