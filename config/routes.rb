@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :accounts, only: [:create] do
+  resources :accounts, only: [:index, :create] do
     collection do
     end
   end

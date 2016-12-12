@@ -1,6 +1,10 @@
 class AccountsController < ApplicationController
   require 'facebook'
 
+  def index
+    render json: {accounts: @current_user.accounts}
+  end
+
   def create
     accounts = Facebook.create_accounts(
       params[:facebook_ids],
