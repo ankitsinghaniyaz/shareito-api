@@ -25,7 +25,7 @@ FactoryGirl.define do
     end
 
     factory :user_with_origin_111 do
-      origin_user_id "111"
+      user_remote_id "111"
     end
   end
 

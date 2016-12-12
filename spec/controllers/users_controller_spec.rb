@@ -161,7 +161,7 @@ RSpec.describe UsersController, type: :controller do
 
     context "with right access token and user exist" do
       before(:each) do
-        user = FactoryGirl.create :user_with_origin_111
+        FactoryGirl.create :user_with_origin_111
         allow(Facebook).to receive(:profile).
           with("token").
           and_return({"name" => "Hello", "id" => "111", "email" => "hello@me.com"})

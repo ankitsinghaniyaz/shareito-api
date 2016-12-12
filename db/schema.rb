@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161210054650) do
+ActiveRecord::Schema.define(version: 20161212143343) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 20161210054650) do
     t.boolean  "is_admin",             default: false
     t.datetime "created_at",                           null: false
     t.datetime "updated_at",                           null: false
-    t.string   "origin_user_id"
+    t.string   "user_remote_id"
   end
 
   add_foreign_key "accounts", "teams"

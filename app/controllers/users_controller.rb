@@ -58,7 +58,7 @@ class UsersController < ApplicationController
       return
     end
 
-    @user = User.find_by(origin_user_id: profile["id"])
+    @user = User.find_by(user_remote_id: profile["id"])
 
     if(@user)
       auth_token = JsonWebToken.encode({user_id: @user.id})
@@ -85,7 +85,7 @@ class UsersController < ApplicationController
     password = SecureRandom.hex(10)
     result = {
       name: hash["name"],
-      origin_user_id: hash["id"],
+      user_remote_id: hash["id"],
       email: hash["email"],
       password: password,
       password_confirmation: password
