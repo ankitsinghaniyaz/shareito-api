@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161212150711) do
+ActiveRecord::Schema.define(version: 20161212173348) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,11 +20,11 @@ ActiveRecord::Schema.define(version: 20161212150711) do
     t.string   "token"
     t.string   "image"
     t.integer  "account_type"
-    t.integer  "source"
+    t.integer  "remote_source"
     t.datetime "expires_at"
     t.integer  "status"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.integer  "team_id"
     t.string   "source_id"
     t.index ["team_id"], name: "index_accounts_on_team_id", using: :btree

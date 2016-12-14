@@ -6,7 +6,7 @@ class Account < ApplicationRecord
   validates_presence_of     :name
   validates_presence_of     :source_id
   validates_presence_of     :image
-  validates_presence_of     :source
+  validates_presence_of     :remote_source
   validates_presence_of     :account_type
 
   enum account_type: {
@@ -15,7 +15,7 @@ class Account < ApplicationRecord
     community: 3,
   }
 
-  enum account_source: {
+  enum remote_source: {
     facebook: 1
   }
 
@@ -23,5 +23,4 @@ class Account < ApplicationRecord
     active: 1,
     expired: 2
   }
-
 end

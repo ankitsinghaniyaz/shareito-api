@@ -87,7 +87,7 @@ class Facebook
       expires_at: expires_at,
       image: profile.dig('picture', 'data', 'url'),
       account_type: 'profile',
-      source: 'facebook'
+      remote_source: 'facebook'
     )
     return [account]
   end
@@ -106,7 +106,7 @@ class Facebook
         token: page["access_token"],
         image: page.dig('picture', 'data', 'url'),
         account_type: 'page',
-        source: 'facebook'
+        remote_source: 'facebook'
       )
       accounts.push(account)
     end
@@ -128,7 +128,7 @@ class Facebook
         expires_at: expires_at,
         image: group.dig('picture', 'data', 'url'),
         account_type: 'community',
-        source: 'facebook'
+        remote_source: 'facebook'
       )
       accounts.push(account)
     end
