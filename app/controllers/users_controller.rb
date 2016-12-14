@@ -62,14 +62,14 @@ class UsersController < ApplicationController
 
     if(@user)
       auth_token = JsonWebToken.encode({user_id: @user.id})
-      render json: {auth_token: auth_token}, status: :ok
+      render json: {auth_token: auth_token, accounts: @user.accounts}, status: :ok
     else
 
       @user = User.new(facebook_user_params(profile))
       @user.team = Team.new
       if @user.save
         auth_token = JsonWebToken.encode({user_id: @user.id})
-        render json: {auth_token: auth_token}, status: :created
+        render json: { auth_token: auth_token, accounts: @user.accounts }, status: :created
       else
         render json: {errors: @user.errors.full_messages}, status: :bad_request
       end
